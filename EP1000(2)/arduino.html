@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Website</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+.w3-row-padding img {margin-bottom: 12px}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
+</head>
+<body class="w3-black">
+
+<div class="navbar">
+  <a href="C:\Users\serih\OneDrive\Desktop\EP1000(2)\index.html">Home</a>
+  <a href="C:\Users\serih\OneDrive\Desktop\EP1000(2)\about.html">About</a>
+  <a href="C:\Users\serih\OneDrive\Desktop\EP1000(2)\contact.html">Contact</a>
+    <div class="dropdown">
+    <button class="dropbtn">Project 
+    </button>
+    <div class="dropdown-content">
+      <a href="C:\Users\serih\OneDrive\Desktop\EP1000(2)\webdevelopment.html">Web development</a>
+      <a href="C:\Users\serih\OneDrive\Desktop\EP1000(2)\computergraphics.html">Computer Graphics</a>
+      <a href="C:\Users\serih\OneDrive\Desktop\EP1000(2)\cad.html">CAD</a>
+      <a href="C:\Users\serih\OneDrive\Desktop\EP1000(2)\3dprinting.html">3D printing</a>
+      <a href="C:\Users\serih\OneDrive\Desktop\EP1000(2)\lasercutting.html">Laser cutting</a>
+      <a href="C:\Users\serih\OneDrive\Desktop\EP1000(2)\arduino.html">Arduino</a>
+    </div>
+  </div>
+  <a href="C:\Users\serih\OneDrive\Desktop\EP1000(2)\finalproject.html">Final Project</a>
+  <a href="C:\Users\serih\OneDrive\Desktop\EP1000(2)\projectools.html">Project Tools</a>
+</div>
+
+<!-- Page Content -->
+  <!-- Web development -->
+  <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
+    <h2 class="w3-text-light-grey">Arduino</h2>
+    <hr style="width:200px" class="w3-opacity">
+    <br>
+        <h3 class="w3-text-light-grey"></h3>
+        <p> We learned what electricity is and how electrical components work. We also learned how to utilize a breadboard, which serves as a foundation for developing electronic circuits. It's utilized in a lot of prototyping projects, and it's great for quick circuit testing.
+
+We were given the challenge of simulating a 555 timer in TinkerCAD. The 555 timer is set up as an astable with R and C values, producing an alternating ON/OFF signal that flashes the LED.</p>
+
+
+<iframe width="725" height="453" src="https://www.tinkercad.com/embed/5z41ld78dne?editbtn=1" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+
+<p> Here is my simulated 555 timer in TinkerCAD
+
+In TinkerCAD, I created a mimicked 555 timer.
+
+Embedded systems were also covered. A dedicated computer system having a dedicated function within a larger system to perform a specific task is known as an embedded system. Smart TVs and stoves, for example. We'll be using Arduino Systems for this project. It includes open source libraries as well as support. Because there are so many clones and third-party makers, it is affordable. It has a cross-platform development environment with a basic, straightforward GUI.
+
+Next, I learned how to program with Arduino. The Arduino code is loosely based on C ++. The digital I / O pin can input or output a digital (0.5V) signal. The Arduino system provides three functions for manipulating digital I / O. I also received an explanation about analog I / O. Analog signals must be converted to digital values ​​before they can be processed.
+    </p>
+
+<br>
+
+  <iframe width="725" height="453" src="https://www.tinkercad.com/embed/47MyTDaTajS?editbtn=1" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+    <div>
+    <p> 
+      The Code:
+    </p>
+    <br>
+    <p>
+      // Processing code
+//
+
+#define SW 2
+#define GRE 13
+#define RED 12
+#define YEL 11
+
+int count = 0; // Initial count value
+int state = HIGH; // Button not pressed
+  
+void setup()
+{
+  Serial.begin(9600);
+  Serial.println("Start");
+  pinMode(SW, INPUT);
+  pinMode(GRE, OUTPUT);
+  pinMode(RED, OUTPUT);
+  pinMode(YEL, OUTPUT);
+  decode(count);
+}
+
+void loop()
+{
+  if(digitalRead(SW) == LOW){
+    // Switch is pressed
+    if (state == HIGH){
+      // Process
+      state = LOW;
+    }
+    else {
+      // do nothing
+    }
+  }
+  else {
+    if (state == LOW){
+      // Registers the keypress
+      count = (count + 1)%6;
+      decode(count);
+      state = HIGH;
+    }
+  }
+}
+
+// Decodes count into binary
+void decode(int v)
+{
+  switch(v){
+    case 0:
+    // LEDs all off
+      digitalWrite(RED, 0);
+      digitalWrite(GRE, 0);
+      digitalWrite(YEL, 0);
+      break;
+    
+    case 1:
+    // Only red LED on
+      digitalWrite(RED, 1);
+      digitalWrite(GRE, 0);
+      digitalWrite(YEL, 0);
+      break;
+    
+    case 2:
+    // Only green LED on
+      digitalWrite(RED, 0);
+      digitalWrite(GRE, 1);
+      digitalWrite(YEL, 0);
+      break;
+    
+    case 3:
+    // Only yellow LED on
+      digitalWrite(RED, 0);
+      digitalWrite(GRE, 0);
+      digitalWrite(YEL, 1);
+      break;
+    
+    case 4:
+    // All LEDs on
+      digitalWrite(RED, 1);
+      digitalWrite(GRE, 1);
+      digitalWrite(YEL, 1);
+      break;
+    
+    case 5:
+    // LEDs flash green then red then yellow
+      digitalWrite(RED, 1);
+      digitalWrite(GRE, 0);
+      digitalWrite(YEL, 0);
+      delay (500);
+      digitalWrite(RED, 0);
+      digitalWrite(GRE, 1);
+      digitalWrite(YEL, 0);
+      delay (500);
+      digitalWrite(RED, 0);
+      digitalWrite(GRE, 0);
+      digitalWrite(YEL, 1);
+      delay (500);
+      break;
+  }
+}
+    </p>
+  </div>
+<br>
+
+</header>
+  
+  
+</header> 
+ </body>
